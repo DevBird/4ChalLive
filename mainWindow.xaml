@@ -1,0 +1,43 @@
+﻿<Window x:Name="mainWindow" x:Class="_4Chal_Live.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="4Chal Live" Height="400" Width="550" Loaded="mainWindow_Loaded" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="grdMain">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="227*"/>
+            <ColumnDefinition Width="317*"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl x:Name="tabGame" HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="535" BorderBrush="{x:Null}" Grid.ColumnSpan="2" />
+        <Grid x:Name="grdMenu" VerticalAlignment="Bottom" Margin="0,0,0,3" IsEnabled="False" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" x:Name="btReload" Margin="5,0,100,0" Content="목록 갱신" Click="btReload_Click"  />
+
+            <Button Grid.Column="0" x:Name="btChgServ"  Margin="100,0,5,0" Content="서버 변경" Click="btChgServ_Click" MouseRightButtonDown="btChgServ_MouseRightButtonDown" >
+                <Button.ContextMenu>
+                    <ContextMenu Visibility="Collapsed">
+                        <MenuItem x:Name="mnuKR" Header="한국" IsChecked="True" Click="MenuItem_Click" Tag="KR" />
+                        <MenuItem x:Name="mnuNA" Header="북미" IsChecked="False" Click="MenuItem_Click" Tag="NA" />
+                        <MenuItem x:Name="mnuEU" Header="유럽" IsChecked="False" Click="MenuItem_Click" Tag="EU" />
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+
+            <Button Grid.Column="1" x:Name="btSpect" Margin="20,0,20,0" Content="관전하기" Click="btSpect_Click" />
+
+            <Button Grid.Column="2" x:Name="btPrev" Content="◀" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="32" Click="btPrev_Click" />
+            <TextBlock Grid.Column="2" x:Name="txtNav" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="15"/>
+            <Button Grid.Column="2" x:Name="btNext" Content="▶" HorizontalAlignment="Right" Height="32" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="32" Click="btNext_Click" />
+        </Grid>
+        <Grid x:Name="grdLoading" Margin="0,0,0,35" Grid.ColumnSpan="2">
+            <ProgressBar x:Name="pbProgress" Height="20" Width="250"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Maximum="60" />
+            <TextBlock x:Name="tbStatus" Text="대기 중" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,60,0,0" FontSize="15" FontWeight="Bold" />
+        </Grid>
+
+    </Grid>
+</Window>
