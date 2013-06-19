@@ -53,7 +53,8 @@ namespace _4Chal_Live.Controls
             bi.BeginInit();
             bi.DecodePixelWidth = 200;
             bi.CacheOption = BitmapCacheOption.None;
-            bi.UriSource = new Uri(String.Format("http://devbird.programmeduniverse.com/lol/champ_image/{0}.png", championId));
+                                                    #error Champion Image URL Here
+            bi.UriSource = new Uri(String.Format("HERE", championId));
             bi.EndInit();
 
             imgChamp.Source = bi;
